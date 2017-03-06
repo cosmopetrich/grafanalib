@@ -13,6 +13,7 @@ def test_serialization():
     graph = G.Graph(
         title="CPU Usage by Namespace (rate[5m])",
         dataSource="My data source",
+        description="My test dashboard",
         targets=[
             G.Target(
                 expr='namespace:container_cpu_usage_seconds_total:sum_rate',

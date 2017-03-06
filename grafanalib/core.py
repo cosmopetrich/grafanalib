@@ -511,6 +511,7 @@ class Dashboard(object):
         default=Annotations(),
         validator=instance_of(Annotations),
     )
+    description = attr.ib(default=None)
     editable = attr.ib(
         default=True,
         validator=instance_of(bool),
@@ -548,6 +549,7 @@ class Dashboard(object):
     def to_json_data(self):
         return {
             'annotations': self.annotations,
+            'description': self.description,
             'editable': self.editable,
             'gnetId': self.gnetId,
             'hideControls': self.hideControls,
@@ -573,6 +575,7 @@ class Graph(object):
 
     title = attr.ib()
     dataSource = attr.ib()
+    description = attr.ib(default=None)
     targets = attr.ib()
     aliasColors = attr.ib(default=attr.Factory(dict))
     bars = attr.ib(default=False, validator=instance_of(bool))
@@ -615,6 +618,7 @@ class Graph(object):
             'aliasColors': self.aliasColors,
             'bars': self.bars,
             'datasource': self.dataSource,
+            'description': self.description,
             'editable': self.editable,
             'error': self.error,
             'fill': self.fill,
